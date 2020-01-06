@@ -1,52 +1,95 @@
-import React from 'react';
+import React, { Component } from 'react'
+import { Card, Icon } from 'react-native-elements'
 import {
   Image,
+  ImageBackground,
+  Linking,
   Platform,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
-} from 'react-native';
+} from 'react-native'
 
-export default function ProfileScreen() {
-  return (
-    <View style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-        <View style={styles.profileContainer}>
-          <Text style={styles.profileText}>
-            [Info]
-          </Text>
-          <Text style={styles.profileText}>
-            [My Projects]
-          </Text>
-        </View>
-      </ScrollView>
-    </View>
-  );
-}
+import ProfileHeader from '../components/profile/ProfileHeader'
+import Email from '../components/profile/Email'
+import Phone from '../components/profile/Phone'
+
+const images = {
+    varun_nair: require('../assets/images/profile_pics/varun_nair.jpeg'),
+    luke_truitt: require('../assets/images/profile_pics/luke_truitt.jpeg'),
+    daniel_tao: require('../assets/images/profile_pics/daniel_tao.jpeg'),
+    mary_gooneratne: require('../assets/images/profile_pics/mary_gooneratne.jpeg'),
+    header: require('../assets/images/header.jpg')
+};
+
+const info = {
+    name: "Daniel Tao",
+    team: "Data Science",
+    role: "Machine Learning Engineer",
+    contact_info: {
+      phone: "(919) 884-1590",
+      email: "chaofan.tao@duke.edu",
+      linked_in: "https://www.linkedin.com/in/chaofan-daniel-tao/",
+      major: "B.S. Computer Science (2021)",
+      location: "Shanghai, China"
+    },
+    projects: ["VR Sickness Prediction", "TourTech Data Analytics"]
+  }
+
+  export default class ProfileScreen extends Component {
+
+    onPressTel = number => {
+      Linking.openURL(`tel://${number}`).catch(err => console.log('Error:', err))
+    }
+  
+    onPressSms = () => {
+      console.log('sms')
+    }
+  
+    onPressEmail = email => {
+      Linking.openURL(`mailto://${email}?subject=subject&body=body`).catch(err =>
+        console.log('Error:', err)
+      )
+    }
+  
+    render() {
+      return (
+          <View style={styles.container}>
+              <ProfileHeader name={info.name} team={info.team} role={info.role} />
+              <View style={styles.container}>
+                <Phone
+              key={'phone'}
+              index={0}
+              name={info.name}
+              number={info.contact_info.phone}
+              onPressSms={this.onPressSms}
+              onPressTel={this.onPressTel}
+            />
+              <Email
+              key={'email'}
+              index={0}
+              name={info.name}
+              email={info.contact_info.email}
+              onPressEmail={this.onPressEmail}
+            /></View>
+          </View>
+      )
+    }
+  }
 
 const styles = StyleSheet.create({
+  cardContainer: {
+    backgroundColor: '#FFF',
+    borderWidth: 0,
+    margin: 0,
+    padding: 0,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
   },
-  contentContainer: {
-    paddingTop: 30,
+  scroll: {
+    backgroundColor: '#FFF',
   },
-  profileContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  profileScreenFilename: {
-    marginVertical: 7,
-  },
-  profileText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-});
+})
+
