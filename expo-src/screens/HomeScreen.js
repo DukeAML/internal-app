@@ -8,29 +8,28 @@ import {
   Text,
   TouchableOpacity,
   View,
+  
 } from 'react-native';
-
+import {Divider} from 'react-native-elements'
 import { MonoText } from '../components/StyledText';
+import SplashCard from '../components/home/SplashCard';
+import NewsFeed from '../components/home/NewsFeed';
 
 
+const styles = StyleSheet.create({
+  newsText: {
+    paddingTop: 10,
+    paddingHorizontal: 10,
+    fontSize: 20
+  }
+})
 export default function HomeScreen() {
-  //var pg = require('pg');
-  //var connectionString = "postgres://postgres:BronCavs#23@localhost/ip:5432/dvdrental";
-  //var pgClient = new pg.Client(connectionString);
-  //pgClient.connect();
-  //var query = pgClient.query("SELECT actor_id from actor");
-  //query.on("row", function(row,result)
-
-    //result.addRow(row);
-    
-    //});
   return (
     <View>
-      <ScrollView>
-        <View>
-          <Text>"Hey"</Text>
-        </View>
-      </ScrollView>
+          <SplashCard></SplashCard>
+          <Divider></Divider>
+          <Text style={styles.newsText}>News Feed</Text>
+          <NewsFeed></NewsFeed>
     </View>
   );
 }
