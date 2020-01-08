@@ -71,7 +71,6 @@ export default class ProfileHeader extends Component {
       <View style={styles.headerContainer}>
       <ImageBackground
         style={styles.headerBackgroundImage}
-        blurRadius={10}
         source={images.header}
       >
           <View style={styles.headerColumn}>

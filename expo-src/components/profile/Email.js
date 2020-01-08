@@ -1,19 +1,14 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, ListItem } from 'react-native'
 import { Icon } from 'react-native-elements'
 import PropTypes from 'prop-types'
 
 const styles = StyleSheet.create({
-  container: {
+  emailContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
-    marginBottom: 25,
     backgroundColor: '#FFF',
-    flex: 5,
-  },
-  emailColumn: {
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
+    paddingBottom: 20
   },
   emailIcon: {
     color: 'black',
@@ -21,14 +16,12 @@ const styles = StyleSheet.create({
   },
   emailRow: {
     flex: 6,
-    justifyContent: 'flex-start',
   },
   emailText: {
     fontSize: 20,
   },
   iconRow: {
     flex: 1,
-    justifyContent: 'flex-start',
   },
 })
 
@@ -36,7 +29,7 @@ const styles = StyleSheet.create({
 //onPress={() => onPressEmail()}
 export default class Email extends Component {
     render() { return(
-    <View style={styles.container}>
+    <View style={styles.emailContainer}>
       <View style={styles.iconRow}>
           <Icon
             name="email"
