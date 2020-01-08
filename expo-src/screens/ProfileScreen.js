@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Icon } from 'react-native-elements'
+import { Card, Icon, Divider } from 'react-native-elements'
 import {
   Image,
   ImageBackground,
@@ -14,6 +14,8 @@ import {
 import ProfileHeader from '../components/profile/ProfileHeader'
 import Email from '../components/profile/Email'
 import Phone from '../components/profile/Phone'
+import ProfileProjects from '../components/profile/ProfileProjects'
+import { Separator } from 'native-base'
 
 const images = {
     varun_nair: require('../assets/images/profile_pics/varun_nair.jpeg'),
@@ -34,7 +36,7 @@ const info = {
       major: "B.S. Computer Science (2021)",
       location: "Shanghai, China"
     },
-    projects: ["VR Sickness Prediction", "TourTech Data Analytics"]
+    projects: ["VR Sickness Prediction"]
   }
 
   export default class ProfileScreen extends Component {
@@ -57,8 +59,7 @@ const info = {
       return (
           <View style={styles.container}>
               <ProfileHeader name={info.name} team={info.team} role={info.role} />
-              <View style={styles.container}>
-                <Phone
+              <Phone
               key={'phone'}
               index={0}
               name={info.name}
@@ -72,7 +73,10 @@ const info = {
               name={info.name}
               email={info.contact_info.email}
               onPressEmail={this.onPressEmail}
-            /></View>
+            />
+            <Divider/>
+            <Text style={[styles.titleText, styles.profileText]}> My Projects </Text>
+            <ProfileProjects projects={info.projects}></ProfileProjects>
           </View>
       )
     }
@@ -81,12 +85,14 @@ const info = {
 const styles = StyleSheet.create({
   cardContainer: {
     backgroundColor: '#FFF',
-    borderWidth: 0,
-    margin: 0,
-    padding: 0,
+  },
+  profileText: {
+    padding: 10
   },
   container: {
     flex: 1,
+    flexDirection: "column",
+    justifyContent: "flex-start"
   },
   scroll: {
     backgroundColor: '#FFF',
