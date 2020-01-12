@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { StyleSheet, TouchableOpacity, View, ListItem } from 'react-native'
 import { Icon } from 'react-native-elements'
-import {Card, CardItem, Text, Body} from 'native-base'
+import {Card, CardItem, Body} from 'native-base'
+import {Text} from 'react-native';
 import PropTypes from 'prop-types'
 
 const styles = StyleSheet.create({
