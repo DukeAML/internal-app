@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View, ListItem } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, ListItem, TextInput } from 'react-native'
 import { Icon } from 'react-native-elements'
 import PropTypes from 'prop-types'
 
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
   },
   emailText: {
     fontSize: 20,
+    fontFamily: "Avenir"
   },
   iconRow: {
     flex: 1,
@@ -38,7 +39,7 @@ export default class Email extends Component {
           />
       </View>
       <View style={styles.emailRow}>
-          <Text style={styles.emailText}>{this.props.email}</Text>
+          <TextInput style={styles.emailText}>{this.props.email}</TextInput>
       </View>
     </View>
     );

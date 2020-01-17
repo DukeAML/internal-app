@@ -11,16 +11,23 @@ import NewsFeed from './NewsFeed'
 
 const styles = StyleSheet.create({
   leftPanel: {
-      flex: 1
+      flex: 1,
+      fontFamily: "Avenir",
   },
     rightPanel: {
     flexDirection: 'column',
     flex: 1,
     padding:20,
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
+    fontFamily: "Avenir"
   },
   container: {
       flexDirection: 'row'
+  },
+  buttonStyle: {
+    fontFamily: 'Avenir',
+    backgroundColor: "black",
+    color: "white"
   }
   
 })
@@ -33,8 +40,8 @@ export default class SplashCard extends Component {
         <NextMeeting days="4" type="General Body" location="Social Science 121"></NextMeeting>
         </View>
         <View style={styles.rightPanel}>
-        <ProjectsButton></ProjectsButton>
-        <ProfileButton></ProfileButton>
+        <ProjectsButton style={styles.buttonStyle}></ProjectsButton>
+        <ProfileButton style={styles.buttonStyle}></ProfileButton>
         </View>
     </View>
 </View>

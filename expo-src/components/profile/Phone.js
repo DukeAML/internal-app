@@ -1,5 +1,5 @@
 import React, { Component }  from 'react'
-import { StyleSheet, Text, TouchableOpacity, View, ListItem } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, ListItem, TextInput } from 'react-native'
 import { Icon } from 'react-native-elements'
 import PropTypes from 'prop-types'
 
@@ -15,7 +15,7 @@ export default class Phone extends Component {
             />
         </View>
         <View style={styles.phoneRow}>
-            <Text style={styles.phoneNumberText}>{this.props.number}</Text>
+            <TextInput style={styles.phoneNumberText}>{this.props.number}</TextInput>
         </View>
     </View>
   );
@@ -37,6 +37,8 @@ const styles = StyleSheet.create({
   },
   phoneNumberText: {
     fontSize: 20,
+    fontFamily: "Avenir"
+
   },
   phoneRow: {
     flex: 6,

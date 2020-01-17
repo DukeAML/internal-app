@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: '600',
         textAlign: 'center',
+        fontFamily: "Avenir"
     },
     userImage: {
         borderColor: 'gray',
@@ -62,6 +63,8 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         paddingBottom: 8,
         textAlign: 'center',
+        fontFamily: "Avenir"
+
   }
 });
 

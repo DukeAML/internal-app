@@ -6,6 +6,11 @@ import PropTypes from 'prop-types'
 const styles = StyleSheet.create({
   container: {
       flexDirection: 'row'
+  },
+  buttonStyle: {
+    fontFamily: 'Avenir',
+    backgroundColor: "black",
+    color: "white",
   }
   
 })
@@ -13,7 +18,7 @@ const styles = StyleSheet.create({
 export default class ProfileButton extends Component {
     render() { return(
     <View style={styles.container}>
-        <Button
+        <Button styles={styles.buttonStyle}
           title="View My Profile"
           onPress={() => Alert.alert('Simple Button pressed')}
         />

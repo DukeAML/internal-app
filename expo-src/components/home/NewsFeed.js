@@ -3,7 +3,17 @@ import { StyleSheet, TouchableOpacity, View, ListItem, ScrollView } from 'react-
 import { Icon } from 'react-native-elements'
 import {Card, CardItem, Text, Body} from 'native-base'
 import PropTypes from 'prop-types'
-
+import NewsCard from './NewsCard'
+const News = [
+    {title: "Congrats Varun!",
+    text: "DAMLer Varun Nair had a paper published in a fancy research journal."},
+    {title: "Mary is being replaced",
+    text: "Mary is sad and heartbroken."},
+    {title: "Mary is not actually happy.",
+    text: "It's all a facade."},
+    {title: "Luke is a baller",
+    text: "I miss him!"}
+]
 const styles = StyleSheet.create({
   container: {
       flexDirection: 'column',
@@ -25,16 +35,8 @@ const styles = StyleSheet.create({
 
 export default class NewsFeed extends Component {
     render() { return(
-    <ScrollView style={styles.container} pagingEnabled={true} horizontal={true}>
-        <Card  style={styles.card}>
-            <Text>Varun published a paper, congrats!</Text>
-        </Card>
-        <Card  style={styles.card}>
-            <Text>VR Sickness won an award at a conference! Woohoo! </Text>
-        </Card>
-        <Card  style={styles.card}>
-            <Text>We just got a new client, TourTech and are getting free Lollapalooza tickets.</Text>
-        </Card>
+    <ScrollView style={styles.container} pagingEnabled={true} horizontal={true} >
+        {News.map(item => <NewsCard title={item.title} text={item.text}></NewsCard>)}
     </ScrollView>
     );
     }}

@@ -22,12 +22,16 @@ export default class MemberListItem extends Component {
         var photo = images[(this.props.name).toLowerCase().split(' ').join('_')]
         return (
         <ListItem
+        style={{
+            fontFamily:"Avenir"
+        }}
         leftAvatar={{
             source: photo,
             showEditButton: true,
         }}
         title={this.props.name}
         subtitle={this.props.role}
+        key={this.props.key}
         chevron
     />
     )}

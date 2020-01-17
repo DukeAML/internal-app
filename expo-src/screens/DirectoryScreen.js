@@ -4,8 +4,12 @@ import {View} from 'react-native';
 import MembersScreen from './MembersScreen'
 import ProjectScreen from './ProjectScreen';
 
+import { setCustomText } from 'react-native-global-props';
+import {customTextProps} from '../constants/Layout';
+
 export default class DirectoryScreen extends Component {
   render() {
+    setCustomText(customTextProps);
     return (
       <Container>
         <Tabs>

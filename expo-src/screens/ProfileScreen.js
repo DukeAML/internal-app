@@ -17,6 +17,9 @@ import Phone from '../components/profile/Phone'
 import ProfileProjects from '../components/profile/ProfileProjects'
 import { Separator } from 'native-base'
 
+import { setCustomText } from 'react-native-global-props';
+import {customTextProps} from '../constants/Layout';
+
 const images = {
     varun_nair: require('../assets/images/profile_pics/varun_nair.jpeg'),
     luke_truitt: require('../assets/images/profile_pics/luke_truitt.jpeg'),
@@ -56,6 +59,7 @@ const info = {
     }
   
     render() {
+      setCustomText(customTextProps);
       return (
           <View style={styles.container}>
               <ProfileHeader name={info.name} team={info.team} role={info.role} />
@@ -87,7 +91,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
   },
   profileText: {
-    padding: 10
+    padding: 10,
+    fontFamily: "Avenir"
   },
   container: {
     flex: 1,
